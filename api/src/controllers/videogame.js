@@ -1,9 +1,12 @@
-const axios = required('axios')
+const axios = require('axios')
 const { API_KEY } = process.env;
-const { Videogame } = required('../db.js')
+const { Videogame } = require('../db.js')
 
 const getApiVideogames = async () => {
-    let url = `https://api.rawg.io/api/games?key=${API_KEY}`
+    //https://api.rawg.io/api/games
+    let url = `https://api.rawg.io/api/games?key=4ad4ff1f90d14b2ab86fe2c9635fd7f8`
+    //const res = await axios.get(url)
+    //return res.data.results
     let videogames = []
     try {
         for(let i = 0; i < 5; i++){
@@ -27,29 +30,30 @@ const getApiVideogames = async () => {
     }
 }
 
-const getDBVideogames = async () => {
-    try {
-        return await Videogame.findAll({
-           include: [{
-               model: Genres, 
-               atributes: ['name'], 
-               throught: { 
-                   attributes: [] 
-               }
-           }]
-       })
-    } catch(error) {
-        console.error(error)
-    }
-}
+// const getDBVideogames = async () => {
+//     try {
+//         return await Videogame.findAll({
+//            include: [{
+//                model: Genre, 
+//                atributes: ['name'], 
+//                throught: { 
+//                    attributes: [] 
+//                }
+//            }]
+//        })
+//     } catch(error) {
+//         console.error(error)
+//     }
+// }
 
-const getAllVideogames = async () => {
-    const apiVideogames = await getApiVideogames()
-    const dbVideogames = await getDBVideogames()
-    const allVideogames = apiVideogames.concat(dbVideogames)
-    return allVideogames
-}
+// const getAllVideogames = async () => {
+//     const apiVideogames = await getApiVideogames()
+//     const dbVideogames = await getDBVideogames()
+//     const allVideogames = apiVideogames.concat(dbVideogames)
+//     return allVideogames
+// }
 
 module.exports = {
-    getAllVideogames
+    getApiVideogames,
+    //getAllVideogames
 }
