@@ -30,30 +30,27 @@ const getApiVideogames = async () => {
     }
 }
 
-// const getDBVideogames = async () => {
-//     try {
-//         return await Videogame.findAll({
-//            include: [{
-//                model: Genre, 
-//                atributes: ['name'], 
-//                throught: { 
-//                    attributes: [] 
-//                }
-//            }]
-//        })
-//     } catch(error) {
-//         console.error(error)
-//     }
-// }
+// const allVideogamesDB = await Videogame.findAll()
+//     res.send(allVideogamesDB)
 
-// const getAllVideogames = async () => {
-//     const apiVideogames = await getApiVideogames()
-//     const dbVideogames = await getDBVideogames()
-//     const allVideogames = apiVideogames.concat(dbVideogames)
-//     return allVideogames
-// }
+const getDBVideogames = async () => {
+    try {
+        const allVideogamesDB = await Videogame.findAll()
+        return allVideogamesDB 
+    } catch(error) {
+        console.error(error)
+    }
+}
+
+const getAllVideogames = async () => {
+    const apiVideogames = await getApiVideogames()
+    const dbVideogames = await getDBVideogames()
+    const allVideogames = apiVideogames.concat(dbVideogames)
+    return allVideogames
+}
 
 module.exports = {
     getApiVideogames,
-    //getAllVideogames
+    getDBVideogames,
+    getAllVideogames
 }
