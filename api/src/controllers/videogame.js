@@ -8,7 +8,7 @@ const getApiVideogames = async () => {
     
     let url = `https://api.rawg.io/api/games?key=4ad4ff1f90d14b2ab86fe2c9635fd7f8`
     let videogames = []
-    
+
     try {
         for(let i = 0; i < 5; i++){
             const res = await axios.get(url)
@@ -63,6 +63,39 @@ const getAllVideogames = async () => {
     return allVideogames
 }
 
+// Request for videogame by id
+
+const getVideogameById = async (id) =>{
+    if(typeof id === 'string' && id.length > 8){
+        const videogameByIdDB= await Videogame.findByPk(id, {
+            include:{
+                model: Genre,
+                attributes: ['name'],
+                through: {
+                    attributes:[]
+                }
+            }
+        })
+        return videogameByIdDB  
+    }else{
+        const videogameByIdApi= await axios.get(`https://api.rawg.io/api/games/${id}?key=4ad4ff1f90d14b2ab86fe2c9635fd7f8`)
+        const e = videogameByIdApi.data
+        const videogame= {
+            id:e.id,
+            name: e.name,
+            //image: e.background_image,
+            description: e.description_raw,
+            released: e.released,
+            rating: e.rating,
+            platform: e.platforms.map(e=>e.platform.name),
+            genres: e.genres.map(e=>e.name)
+        }
+        return videogame
+    }
+}
+
+
+
 
 // Request for videogame by name
 
@@ -93,5 +126,6 @@ module.exports = {
     getApiVideogames,
     getDBVideogames,
     getAllVideogames,
+    getVideogameById
     //videogameByName
 }
