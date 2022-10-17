@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 
 const { getAllVideogames, getVideogameById } = require('../controllers/videogame')
-const { Videogame, Genre } = require('../db')
+const { Videogame, Genre} = require('../db')
 
 router.get('/', async (req, res, next) => {
 
@@ -54,8 +54,8 @@ router.post('/', async (req, res, next) => {
             description,
             released,
             rating,
-            platforms
-            //genres
+            platforms,
+            genres
         })
         // genres.forEach(async (e) => {
         //     let genresDb = await Genre.findAll({
@@ -66,23 +66,26 @@ router.post('/', async (req, res, next) => {
 
         //   genres.forEach(async (g) => {
         //     let genresGame = await Genre.findAll({ where: { name: g } });
-        //     await newVideogame.addGenre(genresGame);
+        //     //await newVideogame.addGenre(genresGame);
+        //     console.log(genresGame)
         //   });
-        let relation = await Genre.findAll({
-            where: { name: genres }
-        })
-        // let relation = console.log(await Genre.findAll({ //en generos, buscame todos aquellos
-            
-        //     where: { //donde
-        //         name: genres
-        //     }
+        //   console.log(newVideogame)
+        // let relation = await Genre.findAll({
+        //     where: {name: genres}
         // })
-        // )
+        // res.send(relation)
+        let relation = console.log(await Genre.findAll({ //en generos, buscame todos aquellos
+            //attributes: ['name'],
+            where: { //donde
+                name: genres
+            }
+        })
+        )
         console.log("soy la relacion", relation)
         await newVideogame.addGenre(relation) //a mi juego creado, le agrego algun genero
         console.log(newVideogame)
         res.send(newVideogame)
-
+        // Falta el mensaje de videojuego creado con éxito
     } catch(error) {
         next(error)
     }
@@ -117,7 +120,5 @@ router.post('/', async (req, res, next) => {
 //     console.log(gameCreated)
 //     res.send(gameCreated)
 //   })
-  
-  
 
 module.exports = router;
