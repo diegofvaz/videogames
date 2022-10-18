@@ -1,6 +1,7 @@
 import './App.css';
-import SearchBar from './components/SearchBar';
-import Videogames from './components/Videogames';
+import SearchBar from './components/SearchBar/SearchBar';
+import Videogames from './components/Videogames/Videogames';
+
 
 function App() {
   return (

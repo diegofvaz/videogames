@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useState } from "react";
-import { getAllVideogames } from "../redux/actions";
+import { getAllVideogames } from "../../redux/actions";
 
 const Videogame = ({id, name, image, genres}) => {
    
