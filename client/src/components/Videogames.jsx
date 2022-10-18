@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useState } from "react";
 import { getAllVideogames } from "../redux/actions";
-import { Videogame } from "./Videogame";
+import Videogame from "./Videogame";
 
-export const Videogames = () => {
+const Videogames = () => {
    
     const dispatch = useDispatch()
     const allVideogames = useSelector((state)=>state.videogames)
@@ -36,3 +36,5 @@ export const Videogames = () => {
         </div>
     )
 }
+
+export default Videogames

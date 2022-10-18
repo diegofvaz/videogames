@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useState } from "react";
 import { getAllVideogames } from "../redux/actions";
 
-export const Videogame = ({id, name, image, genres}) => {
+const Videogame = ({id, name, image, genres}) => {
    
     // const dispatch = useDispatch()
     // const allVideogames = useSelector((state)=>state.videogames)
@@ -24,3 +24,5 @@ export const Videogame = ({id, name, image, genres}) => {
         </div>
     )
 }
+
+export default Videogame
