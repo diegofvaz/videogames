@@ -1,4 +1,4 @@
-import { GET_ALL_VIDEOGAMES, GET_VIDEOGAME, GET_NAME, CREATE_VIDEOGAME, ORDER_NAME, ORDER_RATING} from "../actions/index";
+import { GET_ALL_VIDEOGAMES, GET_DETAIL, GET_NAME, CREATE_VIDEOGAME, ORDER_NAME, ORDER_RATING} from "../actions/index";
 
 const initialState = {
 videogames: [],
@@ -12,7 +12,7 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 videogames: action.payload
             }
-        case GET_VIDEOGAME:  // detalle
+        case GET_DETAIL:  // detalle
             return {
                 ...state,
                 videogame: action.payload

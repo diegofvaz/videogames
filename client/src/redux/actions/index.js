@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
-export const GET_VIDEOGAME = "GET_VIDEOGAME";
+export const GET_DETAIL = "GET_DETAIL";
 export const GET_NAME = "GET_NAME";
 // export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
 
@@ -14,16 +14,17 @@ export const getAllVideogames = () => async dispatch => {
     const { data } = await axios.get('http://localhost:3001/videogames/');
     dispatch({ type: "GET_ALL_VIDEOGAMES", payload: data });
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 };
 
-export const getVideogame = (id) => async dispatch => {
+export const getDetail = (id) => async dispatch => {
   try {
-    const data = await axios.get('http://localhost:3001/videogames/' + id);
-    dispatch({ type: "GET_VIDEOGAME", payload: data });
+    const { data } = await axios.get('http://localhost:3001/videogames/' + id);
+    dispatch({ type: "GET_DETAIL", payload: data });
   } catch (error) {
-    console.log(error);
+    console.log(error)
+    // se puede poner error 404
   }
 };
 
@@ -32,7 +33,7 @@ export const getName = (name) => async dispatch => {
     const { data } = await axios.get('http://localhost:3001/videogames?name=' + name);
     dispatch({ type: "GET_NAME", payload: data });
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 };
 
