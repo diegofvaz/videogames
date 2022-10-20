@@ -55,7 +55,7 @@ const rootReducer = (state = initialState, action) => {
             })
             return{
                 ...state,
-                videogames: action.payload === 'all' ? state.videogames : orderRating
+                videogames: orderRating
             }
         default:
         return state;
