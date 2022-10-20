@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllVideogames } from "../../redux/actions";
 import Videogame from "../Videogame/Videogame";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
+import OrderName from "../OrderName/OrderName";
+import OrderRating from "../OrderRating/OrderRating";
 
 const Videogames = () => {
    
@@ -20,6 +23,15 @@ const Videogames = () => {
     
     return (
         <div>
+            <div>
+                <NavBar/>
+            </div>
+            <div>
+                <OrderName/>
+            </div>
+            <div>
+                <OrderRating/>
+            </div>
             {allVideogames.map(v => {
                 return (
                     <div>
