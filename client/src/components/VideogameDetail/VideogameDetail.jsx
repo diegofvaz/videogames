@@ -34,8 +34,8 @@ const VideogameDetail = () => {
             <p>{details.rating}</p>
             <p>{details.released}</p>
             <p>{details.description}</p>
-            {/* <p>{details.genres.map(e => e).join(', ')}</p>
-            <p>{details.platform.map(e => e).join(', ')}</p> */}
+            <p>{details.genres?.map(e => e).join(', ')}</p>
+            <p>{details.platform?.map(e => e).join(', ')}</p>
             <NavLink to={'/home'}>
                 <span>Back Home</span>
             </NavLink>

@@ -22,11 +22,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 videogames: action.payload
             }
-        // case CREATE_VIDEOGAME:
-            // return {
-            //     ...state,
-            //     videogames: state.videogames.concat(action.payload)
-            // }
+        case CREATE_VIDEOGAME:    // create
+            return {
+                ...state,
+                videogames: state.videogames.concat(action.payload)
+            }
         case ORDER_NAME:     // orden por nombre
             let orderName = [...state.videogames]
             orderName = orderName.sort((a,b) => {
