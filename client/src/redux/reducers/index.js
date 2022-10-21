@@ -1,8 +1,10 @@
-import { GET_ALL_VIDEOGAMES, GET_DETAIL, GET_NAME, CREATE_VIDEOGAME, ORDER_NAME, ORDER_RATING} from "../actions/index";
+import { GET_ALL_VIDEOGAMES, GET_DETAIL, GET_NAME, CREATE_VIDEOGAME, GET_ALL_GENRES, ORDER_NAME, ORDER_RATING, FILTER_GENRES} from "../actions/index";
 
 const initialState = {
-videogames: [],
-videogame: {},
+    allVideogames:[],
+    videogames: [],
+    genres: [],
+    videogame: {},
 };
   
 const rootReducer = (state = initialState, action) => {
@@ -10,6 +12,7 @@ const rootReducer = (state = initialState, action) => {
         case GET_ALL_VIDEOGAMES:  // home
             return {
                 ...state,
+                allVideogames: action.payload,
                 videogames: action.payload
             }
         case GET_DETAIL:  // detalle
@@ -27,6 +30,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 videogames: state.videogames.concat(action.payload)
             }
+        case GET_ALL_GENRES:
+            return{
+                ...state,
+                genres: action.payload
+            }
         case ORDER_NAME:     // orden por nombre
             let orderName = [...state.videogames]
             orderName = orderName.sort((a,b) => {
@@ -38,9 +46,13 @@ const rootReducer = (state = initialState, action) => {
                 }
                 return 0
             })
-            return {
+            // return {
+            //     ...state,
+            //     videogames: orderName
+            // }
+            return{
                 ...state,
-                videogames: orderName
+                videogames: action.payload === "all" ? state.allVideogames : orderName
             }
         case ORDER_RATING:      // orden por rating
             let orderRating = [...state.videogames]
@@ -53,9 +65,21 @@ const rootReducer = (state = initialState, action) => {
                 }
                 return 0
             })
+            // return{
+            //     ...state,
+            //     videogames: orderRating
+            // }
             return{
                 ...state,
-                videogames: orderRating
+                videogames: action.payload === "all" ? state.allVideogames : orderRating
+            }
+        case FILTER_GENRES:    // filter genres
+            let allGames = state.allVideogames
+            let filterGenres = allGames.filter(v => 
+            v.genres?.some(e => e.toLowerCase() === action.payload.toLowerCase()))
+            return{
+                ...state,
+                videogames: action.payload === "all" ? state.allVideogames : filterGenres
             }
         default:
         return state;

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import OrderName from "../OrderName/OrderName";
 import OrderRating from "../OrderRating/OrderRating";
+import FilterGenres from "../FilterGenres/FilterGenres";
 
 const Videogames = () => {
    
@@ -31,6 +32,9 @@ const Videogames = () => {
             </div>
             <div>
                 <OrderRating/>
+            </div>
+            <div>
+                <FilterGenres/>
             </div>
             {allVideogames.map(v => {
                 return (

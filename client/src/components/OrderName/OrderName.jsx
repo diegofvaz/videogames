@@ -9,15 +9,15 @@ const OrderName = () => {
     const dispatch = useDispatch()
 
     function handleOrderName(e){
-        if (e.target.value === 'all') {
-            dispatch(getAllVideogames())
-        } else {
+        // if (e.target.value === 'all') {
+        //     dispatch(getAllVideogames())
+        // } else {
             e.preventDefault()
             dispatch(orderName(e.target.value))      
             // setPaginaActual(1);
             // setOrder(`ordenado${e.target.value}`)
             //e.target.value = 'default' -----> vuelve a default después de ejecutar un orden
-        }
+       // }
     }
 
     return (
