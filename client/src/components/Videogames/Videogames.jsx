@@ -10,6 +10,7 @@ import OrderName from "../OrderName/OrderName";
 import OrderRating from "../OrderRating/OrderRating";
 import FilterGenres from "../FilterGenres/FilterGenres";
 import FilterVideogame from "../FilterVideogame/FilterVideogame";
+import Loading from "../Loading/Loading";
 
 const Videogames = () => {
    
@@ -40,21 +41,27 @@ const Videogames = () => {
             <div>
                 <FilterVideogame/>
             </div>
-            {allVideogames?.map(v => {
-                return (
-                    <div>
-                        <Link to={`/videogames/${v.id}`}>
-                            <Videogame 
-                                key={v.id}
-                                id={v.id}
-                                name={v.name}
-                                image={v.image}
-                                genres={v.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
-                            />
-                        </Link>
-                    </div>
-                ) 
-            })}   
+            {allVideogames.length > 0 ?
+                allVideogames?.map(v => {
+                    return (
+                        <div>
+                            <Link to={`/videogames/${v.id}`}>
+                                <Videogame 
+                                    key={v.id}
+                                    id={v.id}
+                                    name={v.name}
+                                    image={v.image}
+                                    genres={v.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
+                                />
+                            </Link>
+                        </div>
+                    ) 
+                }) 
+                : 
+                <div>
+                    <Loading/>
+                </div> 
+            } 
         </div>
     )
 }
