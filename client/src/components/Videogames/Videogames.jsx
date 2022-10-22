@@ -9,6 +9,7 @@ import NavBar from "../NavBar/NavBar";
 import OrderName from "../OrderName/OrderName";
 import OrderRating from "../OrderRating/OrderRating";
 import FilterGenres from "../FilterGenres/FilterGenres";
+import FilterVideogame from "../FilterVideogame/FilterVideogame";
 
 const Videogames = () => {
    
@@ -36,7 +37,10 @@ const Videogames = () => {
             <div>
                 <FilterGenres/>
             </div>
-            {allVideogames.map(v => {
+            <div>
+                <FilterVideogame/>
+            </div>
+            {allVideogames?.map(v => {
                 return (
                     <div>
                         <Link to={`/videogames/${v.id}`}>
@@ -45,7 +49,7 @@ const Videogames = () => {
                                 id={v.id}
                                 name={v.name}
                                 image={v.image}
-                                genres={v.genres.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
+                                genres={v.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
                             />
                         </Link>
                     </div>

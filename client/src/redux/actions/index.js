@@ -8,7 +8,7 @@ export const GET_ALL_GENRES = "GET_ALL_GENRES";
 export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_RATING = "ORDER_RATING";
 export const FILTER_GENRES = "FILTER_GENRES";
-
+export const FILTER_VIDEOGAME = "FILTER_VIDEOGAME";
 
 export const getAllVideogames = () => async dispatch => {
   try {
@@ -73,6 +73,13 @@ export const orderRating = (payload) => {
 export const filterGenres = (payload) => {
   return {
     type: "FILTER_GENRES",
+    payload
+  }
+};
+
+export const filterVideogame = (payload) => {
+  return {
+    type: "FILTER_VIDEOGAME",
     payload
   }
 };

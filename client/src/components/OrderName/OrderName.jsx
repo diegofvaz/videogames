@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { orderName } from '../../redux/actions'
-import { getAllVideogames } from '../../redux/actions'
 
 
 const OrderName = () => {
