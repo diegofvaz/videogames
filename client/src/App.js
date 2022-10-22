@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import VideogameDetail from './components/VideogameDetail/VideogameDetail';
 import CreateVideogame from './components/CreateVideogame/CreateVideogame';
 import Home from './components/Home/Home';
+import Error from './components/Error/Error';
 
 
 function App() {
@@ -13,11 +14,11 @@ function App() {
         <Route exact path='/' component={LandingPage}/> 
         <Route exact path='/home' component={Home}/>
         <Route exact path='/create' component={CreateVideogame}/>
-        <Route exact path='/videogames/:id' component={VideogameDetail}/>
-        <Route exact path='*/*' />     
+        <Route exact path='/videogames/:id' component={VideogameDetail}/> 
+        <Route exact path='*/*' component={Error}/>    
       </Switch>
     </div>
-  );
+  )
 }
 
 export default App;
