@@ -4,11 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllVideogames } from "../../redux/actions";
 import Videogame from "../Videogame/Videogame";
 import { Link } from "react-router-dom";
-import NavBar from "../NavBar/NavBar";
-import OrderName from "../OrderName/OrderName";
-import OrderRating from "../OrderRating/OrderRating";
-import FilterGenres from "../FilterGenres/FilterGenres";
-import FilterVideogame from "../FilterVideogame/FilterVideogame";
 import Loading from "../Loading/Loading";
 import Paginated from "../Paginated/Paginated";
 
@@ -16,15 +11,15 @@ const Videogames = () => {
    
     const allVideogames = useSelector((state)=>state.videogames)
 
-    const [currentPage, setCurrentPage] = useState(1) //lo seteo en 1 porque siempre arranco por la primer pagina
-    const gamesPerPage = 15//cantidad de juegos que debe haber por pagina
-    const indexOfLastGame = currentPage * gamesPerPage // 1 * 15 = 15
-    const indexOfFirstGame= indexOfLastGame - gamesPerPage // 15 - 15 = 0
-    const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame) //para dividir la cantidad de juegos por pagina
+    const [currentPage, setCurrentPage] = useState(1) 
+    const gamesPerPage = 15
+    const indexOfLastGame = currentPage * gamesPerPage
+    const indexOfFirstGame= indexOfLastGame - gamesPerPage 
+    const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame)
 
     const dispatch = useDispatch()
 
-    const paginado = (pageNumber) => { //establece el numero de pagina
+    const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
     
@@ -37,21 +32,6 @@ const Videogames = () => {
     
     return (
         <div>
-            <div>
-                <NavBar/>
-            </div>
-            <div>
-                <OrderName/>
-            </div>
-            <div>
-                <OrderRating/>
-            </div>
-            <div>
-                <FilterGenres/>
-            </div>
-            <div>
-                <FilterVideogame/>
-            </div>
             {currentGames.length > 0 ?
                 currentGames?.map(v => {
                     return (
