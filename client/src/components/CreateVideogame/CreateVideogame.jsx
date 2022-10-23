@@ -33,8 +33,8 @@ function validate (input) {
         errors.rating = 'El rating es requerido'
     } else if(input.rating > 5) {
         errors.rating = 'El rating no debe ser mayor a 5'
-    } else if(input.rating < 0) {
-        errors.rating = 'El rating no puede ser un numero negativo'
+    } else if(input.rating < 1) {
+        errors.rating = 'El rating mínimo debe ser 1'
     }
 
     return errors 
@@ -74,8 +74,8 @@ const CreateVideogame = () => {
             alert('Sorry, this videogame already exists')
         } else {
             let error = Object.keys(validate(input)) 
-            if(error.length !== 0 | !input.genres.length) {
-                alert('Please, fill the form')
+            if(error.length !== 0 || !input.genres.length || !input.platforms.length) {
+                alert('Please, fill the form. All inputs are required')
                 return
             } else {
                 dispatch(createVideogame(input));
@@ -160,20 +160,29 @@ const CreateVideogame = () => {
                 <br/>
                 <label>Description:</label>
                 <textarea className={errors.description && 'danger'} type="text" name="description" value={input.description} onChange={(e) => handleInputChange(e)} />
+                {errors.description && (
+                <p className="danger">{errors.description}</p>
+                )}
                 <br/>
                 <br/>
                 <br/>
                 <label>Released:</label>
                 <input className={errors.released && 'danger'} type="date" name="released" value={input.released} onChange={(e) => handleInputChange(e)} />
+                {errors.released && (
+                <p className="danger">{errors.released}</p>
+                )}
                 <br/>
                 <br/>
                 <br/>
                 <label>Rating:</label>
                 <input className={errors.rating && 'danger'} type="number" name="rating" value={input.rating} onChange={(e) => handleInputChange(e)} />
+                {errors.rating && (
+                <p className="danger">{errors.rating}</p>
+                )}
                 <br/>
                 <br/>
                 <br/>
-                <div>Genres 
+                <div>Genres:
                     <select name='select' defaultValue="default" onChange={(e) => handleSelect(e)}>
                         {allGenres?.map((g) => (
                             <option value={g.name}>{g.name}</option>
@@ -186,18 +195,18 @@ const CreateVideogame = () => {
                 <br/>
                 <br/>
                 <br/>
-                <div>Platforms
+                <div>Platforms: 
                     <div>
                         {arrayPlat.map(plat=> {
                             return(
-                                <div >
+                                <div>
                                     <input              
-                                    type='checkbox'
-                                    id={plat}
-                                    name={plat}
-                                    value={ plat }
-                                    disabled ={input.platforms.length > 4 && !input.platforms.includes(plat)} 
-                                    selected={ input.platforms.includes(plat) } onChange={ handlePlatform }
+                                        type='checkbox'
+                                        id={plat}
+                                        name={plat}
+                                        value={ plat }
+                                        disabled ={input.platforms.length > 4 && !input.platforms.includes(plat)} 
+                                        selected={ input.platforms.includes(plat) } onChange={ handlePlatform }
                                     />
                                     <label for={plat} >{plat}</label>
                                 
@@ -205,7 +214,7 @@ const CreateVideogame = () => {
                             )})
                         }
                     </div>
-                    <div>{errors.platform && <p>{ errors.platform }</p>} </div>
+                    <div>{errors.platforms && <p>{ errors.platforms }</p>} </div>
                 </div>        
                 <br/>
                 <br/>
