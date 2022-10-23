@@ -58,14 +58,12 @@ const CreateVideogame = () => {
     const dispatch = useDispatch()
 
     const allGenres = useSelector((state) => state.genres)
-    const allPlatforms = useSelector((state) => state.platforms)
     const allVideogames = useSelector((state) => state.videogames)
   
     
     useEffect(() => {
         dispatch(getAllVideogames())
         dispatch(getAllGenres())
-        // -------> NO OLVIDAR DISPATCH GENRES Y PLATFORMS
     }, [dispatch])
 
     function handleSubmit(e) {
@@ -76,7 +74,7 @@ const CreateVideogame = () => {
             alert('Sorry, this videogame already exists')
         } else {
             let error = Object.keys(validate(input)) 
-            if(error.length !== 0 ) { /// --------------------> NO OLVIDAR LOS OTROS CONDICIONALES
+            if(error.length !== 0 | !input.genres.length) {
                 alert('Please, fill the form')
                 return
             } else {
@@ -108,6 +106,46 @@ const CreateVideogame = () => {
         }));
     }
 
+    function handleSelect(e) {
+        setInput({
+          ...input,
+          genres: [...input.genres, e.target.value],
+        });
+    }
+
+    const arrayPlat=[
+        'Android',
+        'iOS',
+        'Linux',
+        'macOS',
+        'Nintendo Switch',
+        'PC',
+        'PlayStation 3',
+        'PlayStation 4',
+        'PlayStation 5',
+        'PS Vita',
+        'Web',
+        'Xbox 360',
+        'Xbox One',
+        'Xbox Series S/X',
+        'Xbox',
+    ]
+    
+    const handlePlatform =(e)=>{
+        let array= input.platforms
+        let ver= array.indexOf(e.target.value)
+        console.log('ver', ver)
+        if(ver>=0){array.splice(ver,1)}
+        else{array.push(e.target.value)}
+        setInput({
+        ...input,
+        arrayPlat:array
+        })
+        console.log('arrayPlar', arrayPlat)
+        const validations = validate(input);
+        setErrors(validations)
+    }
+
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -136,26 +174,39 @@ const CreateVideogame = () => {
                 <br/>
                 <br/>
                 <div>Genres 
-                    <select name='select' defaultValue="default" onChange={(e) => handleInputChange(e)}>
-                        {/* <option value='default' disabled='disabled'>Select</option>
-                        <option value='asc'>A - Z</option>    */}
+                    <select name='select' defaultValue="default" onChange={(e) => handleSelect(e)}>
                         {allGenres?.map((g) => (
                             <option value={g.name}>{g.name}</option>
                         ))}                  
                     </select>
+                    <div className="selected">
+                        {input.genres.map((el) => el + " ")}
+                    </div>
                 </div>
                 <br/>
                 <br/>
                 <br/>
-                <div>Platforms 
-                    <select name='select' defaultValue="default" onChange={(e) => handleInputChange(e)}>
-                        {/* <option value='default' disabled='disabled'>Select</option>
-                        <option value='asc'>A - Z</option>                       */}
-                        {/* {allPatforms?.map((p) => (
-                            <option value={p.name}>{p.name}</option>
-                        ))}   */}
-                    </select>
-                </div>
+                <div>Platforms
+                    <div>
+                        {arrayPlat.map(plat=> {
+                            return(
+                                <div >
+                                    <input              
+                                    type='checkbox'
+                                    id={plat}
+                                    name={plat}
+                                    value={ plat }
+                                    disabled ={input.platforms.length > 4 && !input.platforms.includes(plat)} 
+                                    selected={ input.platforms.includes(plat) } onChange={ handlePlatform }
+                                    />
+                                    <label for={plat} >{plat}</label>
+                                
+                                </div>
+                            )})
+                        }
+                    </div>
+                    <div>{errors.platform && <p>{ errors.platform }</p>} </div>
+                </div>        
                 <br/>
                 <br/>
                 <br/>
