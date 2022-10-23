@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { createVideogame, getAllVideogames } from '../../redux/actions'
+import { createVideogame, getAllVideogames, getAllGenres } from '../../redux/actions'
 import { Link } from 'react-router-dom';
 
 
@@ -64,6 +64,7 @@ const CreateVideogame = () => {
     
     useEffect(() => {
         dispatch(getAllVideogames())
+        dispatch(getAllGenres())
         // -------> NO OLVIDAR DISPATCH GENRES Y PLATFORMS
     }, [dispatch])
 
@@ -135,18 +136,24 @@ const CreateVideogame = () => {
                 <br/>
                 <br/>
                 <div>Genres 
-                    <select name='select' defaultValue="default">
-                        <option value='default' disabled='disabled'>Select</option>
-                        <option value='asc'>A - Z</option>                     
+                    <select name='select' defaultValue="default" onChange={(e) => handleInputChange(e)}>
+                        {/* <option value='default' disabled='disabled'>Select</option>
+                        <option value='asc'>A - Z</option>    */}
+                        {allGenres?.map((g) => (
+                            <option value={g.name}>{g.name}</option>
+                        ))}                  
                     </select>
                 </div>
                 <br/>
                 <br/>
                 <br/>
                 <div>Platforms 
-                    <select name='select' defaultValue="default">
-                        <option value='default' disabled='disabled'>Select</option>
-                        <option value='asc'>A - Z</option>                      
+                    <select name='select' defaultValue="default" onChange={(e) => handleInputChange(e)}>
+                        {/* <option value='default' disabled='disabled'>Select</option>
+                        <option value='asc'>A - Z</option>                       */}
+                        {/* {allPatforms?.map((p) => (
+                            <option value={p.name}>{p.name}</option>
+                        ))}   */}
                     </select>
                 </div>
                 <br/>
