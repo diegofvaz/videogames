@@ -34,8 +34,8 @@ const VideogameDetail = () => {
             <p>{details.rating}</p>
             <p>{details.released}</p>
             <p>{details.description}</p>
-            <p>{details.genres?.map(e => e).join(', ')}</p>
-            <p>{details.platform?.map(e => e).join(', ')}</p>
+            <p>{details.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}</p>
+            <p>{details.platforms?.map(e => e).join(', ')}</p>
             <Link to={'/home'}>
                 <button type="submit">Back Home</button>
             </Link>
