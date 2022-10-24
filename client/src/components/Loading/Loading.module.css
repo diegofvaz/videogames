@@ -1,0 +1,10 @@
+.content{
+    background-color: #242629;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 150px; */
+    margin: 100px 100px;
+    color: #ffffff;
+    font-size: 36px;
+}
