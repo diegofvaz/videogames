@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getDetail } from '../../redux/actions'
+import Loading from "../Loading/Loading";
+import Error from '../Error/Error';
 
 const VideogameDetail = () => {
 
@@ -23,22 +25,30 @@ const VideogameDetail = () => {
         // }
     }, [id, dispatch] )
 
-    if(details.name === 404){
-        return "esta cargando"
-    }
+    // if(details.id === 404){
+    //     return (
+    //       <Error/>
+    //     )
+    // }
 
     return (    
-        <div>      
-            <img src={details.image} alt="" width="400px" height="250px"/>
-            <p>{details.name}</p>
-            <p>{details.rating}</p>
-            <p>{details.released}</p>
-            <p>{details.description}</p>
-            <p>{details.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}</p>
-            <p>{details.platforms?.map(e => e).join(', ')}</p>
-            <Link to={'/home'}>
-                <button type="submit">Back Home</button>
-            </Link>
+        <div>
+            {details.name ?
+                <div>     
+                    <img src={details.image} alt="" width="400px" height="250px"/>
+                    <p>{details.name}</p>
+                    <p>{details.rating}</p>
+                    <p>{details.released}</p>
+                    <p>{details.description}</p>
+                    <p>{details.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}</p>
+                    <p>{details.platforms?.map(e => e).join(', ')}</p>
+                    <Link to={'/home'}>
+                        <button type="submit">Back Home</button>
+                    </Link>
+                </div> 
+                :
+                <Loading/>
+            }
         </div>
     )
 }
