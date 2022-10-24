@@ -21,9 +21,9 @@ const FilterVideogame = () => {
     }
 
     return (
-        <div className={style.content}>Videogames
+        <div className={style.content}>
             <select className={style.select} name='select' onChange={(e)=>handleFilterVideogame(e)} defaultValue="default">
-                <option value='default' disabled='disabled'>Select</option>
+                <option value='default' disabled='disabled'>Videogames</option>
                 <option value='all'>All Videogames</option>
                 <option value='api'>Previous</option>  
                 <option value='db'>Created</option>   
