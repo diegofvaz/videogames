@@ -5,7 +5,7 @@ import { getAllGenres } from '../../redux/actions'
 import { useEffect } from 'react'
 
 
-const FilterGenres = () => {
+const FilterGenres = ({setCurrentPage}) => {
 
     const dispatch = useDispatch()
     const allGenres = useSelector((state) => state.genres)
@@ -20,9 +20,9 @@ const FilterGenres = () => {
         // } else {
             e.preventDefault()
             dispatch(filterGenres(e.target.value))      
-            // setPaginaActual(1);
+            setCurrentPage(1);
             // setOrder(`ordenado${e.target.value}`)
-            //e.target.value = 'default' -----> vuelve a default después de ejecutar un orden
+            e.target.value = 'default'
         //}
     }
 
