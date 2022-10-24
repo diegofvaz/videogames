@@ -1,4 +1,6 @@
 import React from "react";
+import style from '../Paginated/Paginated.module.css'
+
 
 const Paginated = ({gamesPerPage, allVideogames, paginado}) => {
 
@@ -9,10 +11,10 @@ const Paginated = ({gamesPerPage, allVideogames, paginado}) => {
     }
 
     return (
-        <div>
+        <div className={style.content}>
             {pageNumber && pageNumber.map(number => (
                 <span key={number}>
-                    <button onClick={() => paginado(number)}>{number}</button>
+                    <button className={style.button} onClick={() => paginado(number)}>{number}</button>
                 </span>
             ))}
         </div>

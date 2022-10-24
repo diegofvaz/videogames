@@ -5,3 +5,9 @@
     justify-content: center;
     height: 150px;
 }
+
+@media screen and (max-width:900px){
+    .conteiner{
+      flex-wrap:wrap;
+    }
+}

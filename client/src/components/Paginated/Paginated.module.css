@@ -1,4 +1,4 @@
-.nav {
+.content {
     background-color: #242629;
     display: flex;
     align-items: center;
@@ -8,9 +8,9 @@
 
 .button {
     color: #ffffff;
-    margin: 0 60px;
+    margin: 0 30px;
     padding: 0.7em 1.7em;
-    font-size: 18px;
+    font-size: 14px;
     border-radius: 0.5em;
     background: #7f5af0;
     border: 1px solid #e8e8e8;
@@ -28,8 +28,8 @@
                 -4px -4px 8px #ffffff;
 }
 
-@media screen and (max-width:1200px){
-    .nav{
+@media screen and (max-width:800px){
+    .content{
       flex-wrap:wrap;
     }
 }
