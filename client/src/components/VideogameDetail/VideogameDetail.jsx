@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import { getDetail } from '../../redux/actions'
 import Loading from "../Loading/Loading";
 import Error from '../Error/Error';
+import style from '../VideogameDetail/VideogameDetail.module.css'
 
 const VideogameDetail = () => {
 
@@ -30,24 +31,28 @@ const VideogameDetail = () => {
     //       <Error/>
     //     )
     // }
-
+    
     return (    
-        <div>
+        <div className={style.content}>
             {details.name ?
-                <div>     
-                    <img src={details.image} alt="" width="400px" height="250px"/>
-                    <p>{details.name}</p>
-                    <p>{details.rating}</p>
-                    <p>{details.released}</p>
-                    <p>{details.description}</p>
-                    <p>{details.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}</p>
-                    <p>{details.platforms?.map(e => e).join(', ')}</p>
+                <div className={style.card}> 
+                    <div>
+                        <img src={details.image} alt="" width="400px" height="250px"/>
+                    </div>    
+                    <p className={style.name}>{details.name}</p>
+                    <p className={style.description}>{details.description}</p>
+                    <p className={style.rating}> Rating: {details.rating}</p>
+                    <p className={style.released}> Released: {details.released}</p>
+                    <p className={style.genres}>Genres: {details.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}</p>
+                    <p className={style.platforms}>Platforms: {details.platform?.map(e => e).join(', ')}</p>
                     <Link to={'/home'}>
-                        <button type="submit">Back Home</button>
+                        <button className={style.button} type="submit">Back Home</button>
                     </Link>
                 </div> 
                 :
-                <Loading/>
+                <div className={style.loading}>
+                    <Loading/>
+                </div>
             }
         </div>
     )

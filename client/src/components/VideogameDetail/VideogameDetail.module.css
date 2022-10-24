@@ -1,0 +1,62 @@
+.content{
+    background-color: #242629;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 100px;
+    margin: auto;
+    text-align:center;
+    color: #fffffe;
+    font-family: monospace;
+    font-size: 24px;
+}
+
+.card{
+    width: 100%;
+    
+}
+
+.card img{
+    width:auto;
+    height:300px;
+    border-radius:10px;
+    position:relative;
+    z-index:1000;
+    transition:all .5s ease-in-out;
+}
+
+.rating, .released, .description, .genres, .platforms {
+    font-size: 16px;
+}
+
+.button {
+    color: #ffffff;
+    margin: 10px 30px;
+    padding: 0.7em 1.7em;
+    font-size: 14px;
+    border-radius: 0.5em;
+    background: #7f5af0;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 4px 4px 8px #7f5af0,
+                -4px -4px 8px #ffffff;
+}
+   
+.button:hover {
+    border: 1px solid white;
+}
+   
+.button:active {
+    box-shadow: 4px 4px 8px #7f5af0,
+                -4px -4px 8px #ffffff;
+}
+
+.loading {
+    padding: 250px 300px;
+}
+
+@media screen and (max-width:600px){
+    .content{
+      display:flex;
+    }
+}
