@@ -5,6 +5,7 @@ import { getAllVideogames } from "../../redux/actions";
 import Videogame from "../Videogame/Videogame";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import style from '../Videogames/Videogames.module.css'
 
 const Videogames = ({currentGames}) => {
    
@@ -15,7 +16,7 @@ const Videogames = ({currentGames}) => {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className={style.conteiner}>
             {currentGames.length > 0 ?
                 currentGames?.map(v => {
                     return (
