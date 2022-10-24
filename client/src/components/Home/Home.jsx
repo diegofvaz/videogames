@@ -8,6 +8,8 @@ import Videogames from '../Videogames/Videogames';
 import Paginated from '../Paginated/Paginated';
 import { useSelector } from "react-redux";
 import { useState, useEffect } from 'react';
+import style from '../Home/Home.module.css'
+
 
 const Home = () => {
 
@@ -35,16 +37,13 @@ const Home = () => {
             <div>
                 <NavBar/>
             </div>
-            <div>
+            <div className={style.conteiner}>
                 <OrderName setCurrentPage={setCurrentPage}/>
-            </div>
-            <div>
+            
                 <OrderRating setCurrentPage={setCurrentPage}/>
-            </div>
-            <div>
+            
                 <FilterGenres setCurrentPage={setCurrentPage}/>
-            </div>
-            <div>
+            
                 <FilterVideogame setCurrentPage={setCurrentPage}/>
             </div>
             <div>

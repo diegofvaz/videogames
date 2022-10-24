@@ -1,42 +1,20 @@
-.content{
-    color: rgb(240, 176, 0);
+select {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
 }
-
-.box {
-    position: absolute;
+   
+select:hover {
+    border: 1px solid white;
 }
-
-.box select {
-    background-color: #ccac44;
-    color: white;
-    padding: 3px;
-    border: none;
-    font-size: 14px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
-}
-
-.box::before {
-    content: "\f13a";
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    text-align: center;
-    font-size: 16px;
-    line-height: 45px;
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.1);
-    pointer-events: none;
-}
-
-.box:hover::before {
-    color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.box select option {
-    padding: 20px;
+   
+select:active {
+    box-shadow: 4px 4px 12px #c5c5c5,
+                -4px -4px 12px #ffffff;
 }
