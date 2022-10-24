@@ -40,7 +40,7 @@ const SearchBar = () => {
                         placeholder='Videojuego...'
                         onChange={e => handleChange(e)}
                     />
-                    <button className={style.button} type="submit">Buscar</button>
+                    <button className={style.button1} type="submit">Buscar</button>
                 </div>
             </form>
         </div>
