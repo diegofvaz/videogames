@@ -27,7 +27,7 @@ const SearchBar = () => {
     
     return(
         <div>
-            <form className={style.searchbox} onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={e => handleSubmit(e)}>
                 <div>
                     <span htmlFor="name"></span>
                     <input 
@@ -40,7 +40,7 @@ const SearchBar = () => {
                         placeholder='Videojuego...'
                         onChange={e => handleChange(e)}
                     />
-                    <button className={style.btnsearch} type="submit">Buscar</button>
+                    <button className={style.button} type="submit">Buscar</button>
                 </div>
             </form>
         </div>
