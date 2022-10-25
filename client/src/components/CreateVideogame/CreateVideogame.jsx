@@ -17,9 +17,9 @@ function validate (input) {
         errors.name = 'Solo se aceptan letras, numeros, guiones medios y parentesis'
     }
 
-    // if(input.image.length !== 0 && !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.image)){
-    //     errors.image='invalid URL'
-    // }
+    if(input.image.length === 0 || !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.image)){
+        errors.image='invalid URL'
+    }
 
     if(!input.description) {
         errors.description = 'La descripcion es requerida'
@@ -44,7 +44,6 @@ function validate (input) {
     if(!input.platforms.length || input.platforms.length >5){
         errors.platforms = "Solo se aceptan hasta 5 plataformas"
     } 
-
     return errors 
 }
 
@@ -53,7 +52,7 @@ const CreateVideogame = () => {
     
     const [input, setInput] = useState({
         name: '',
-        //image: '',
+        image: '',
         description: '',
         released: '',
         rating: '',
@@ -88,7 +87,7 @@ const CreateVideogame = () => {
                 dispatch(createVideogame(input));
                 setInput({
                     name: "",
-                    //image: "",
+                    image: "",
                     description: "",
                     released: "",
                     rating: "",
@@ -169,6 +168,14 @@ const CreateVideogame = () => {
                 <textarea className={style.input} type="text" name="description" value={input.description} onChange={(e) => handleInputChange(e)} />
                 {errors.description && (
                 <p className={style.error}>{errors.description}</p>
+                )}
+                <br/>
+                <br/>
+                <br/>
+                <label className={style.label}>Image:</label>
+                <input className={style.input} type="text" name="image" value={input.image} onChange={(e) => handleInputChange(e)} />
+                {errors.image && (
+                <p className={style.error}>{errors.image}</p>
                 )}
                 <br/>
                 <br/>
