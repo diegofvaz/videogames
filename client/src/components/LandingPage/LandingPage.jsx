@@ -6,7 +6,6 @@ const LandingPage = () => {
     return (
         <div className={style.content}> 
             <div>
-                <h1>VIDEOGAMES APP</h1>
                 <Link to='/home'><button className={style.button}>GET STARTED</button></Link>
             </div>
         </div>
