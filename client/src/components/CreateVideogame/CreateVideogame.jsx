@@ -77,7 +77,6 @@ const CreateVideogame = () => {
     function handleSubmit(e) {
         e.preventDefault();
         let noRepeat = allVideogames.filter(n => n.name === input.name)
-        console.log("repite nombre", noRepeat)
         if(noRepeat.length !== 0) {  
             alert('Sorry, this videogame already exists')
         } else {
@@ -115,10 +114,12 @@ const CreateVideogame = () => {
     }
 
     function handleSelect(e) {
+        e.preventDefault()
         setInput({
           ...input,
           genres: [...input.genres, e.target.value],
         });
+        e.target.value = 'default' 
     }
 
     const arrayPlat=[
@@ -142,14 +143,12 @@ const CreateVideogame = () => {
     const handlePlatform =(e)=>{
         let array= input.platforms
         let ver= array.indexOf(e.target.value)
-        console.log('ver', ver)
         if(ver>=0){array.splice(ver,1)}
         else{array.push(e.target.value)}
         setInput({
         ...input,
         arrayPlat:array
         })
-        console.log('arrayPlar', arrayPlat)
         const validations = validate(input);
         setErrors(validations)
     }
@@ -193,6 +192,7 @@ const CreateVideogame = () => {
                 <div>
                     <label className={style.labelG}>Genres:</label>
                     <select className={style.input} name='select' defaultValue="default" onChange={(e) => handleSelect(e)}>
+                        <option value='default' disabled='disabled'>All</option>
                         {allGenres?.map((g) => (
                             <option value={g.name} disabled ={input.genres.length > 3 && !input.genres.includes(g)} >{g.name}</option>
                         ))}                  
@@ -214,7 +214,7 @@ const CreateVideogame = () => {
                         {arrayPlat.map(plat=> {
                             return(
                                 <div>
-                                    <input        
+                                    <input       
                                         type='checkbox'
                                         id={plat}
                                         name={plat}

@@ -4,20 +4,16 @@ import { orderRating } from '../../redux/actions'
 import style from '../OrderRating/OrderRating.module.css'
 
 
-const OrderRating = () => {
+const OrderRating = ({setCurrentPage}) => {
 
     const dispatch = useDispatch()
 
     function handleOrderRating(e){
-        // if (e.target.value === 'all') {
-        //     dispatch(getAllVideogames())
-        // } else {
-            e.preventDefault()
-            dispatch(orderRating(e.target.value))      
-            // setPaginaActual(1);
-            // setOrder(`ordenado${e.target.value}`)
-            //e.target.value = 'default' -----> vuelve a default después de ejecutar un orden
-        //}
+        e.preventDefault()
+        dispatch(orderRating(e.target.value))      
+        setCurrentPage(1);
+        // setOrder(`ordenado${e.target.value}`)
+        e.target.value = 'default'
     }
 
     return (

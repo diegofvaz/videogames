@@ -4,20 +4,16 @@ import { filterVideogame } from '../../redux/actions'
 import style from '../FilterVideogame/FilterVideogame.module.css'
 
 
-const FilterVideogame = () => {
+const FilterVideogame = ({setCurrentPage}) => {
 
     const dispatch = useDispatch()
 
     function handleFilterVideogame(e){
-        // if (e.target.value === 'all') {
-        //     dispatch(getAllVideogames())
-        // } else {
-            e.preventDefault()
-            dispatch(filterVideogame(e.target.value))      
-            // setPaginaActual(1);
-            // setOrder(`ordenado${e.target.value}`)
-            //e.target.value = 'default' -----> vuelve a default después de ejecutar un orden
-        //}
+        e.preventDefault()
+        dispatch(filterVideogame(e.target.value))      
+        setCurrentPage(1);
+        // setOrder(`ordenado${e.target.value}`)
+        e.target.value = 'default'
     }
 
     return (

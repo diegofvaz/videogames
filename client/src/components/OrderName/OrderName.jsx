@@ -4,20 +4,16 @@ import { orderName } from '../../redux/actions'
 import style from '../OrderName/OrderName.module.css'
 
 
-const OrderName = () => {
+const OrderName = ({setCurrentPage}) => {
 
     const dispatch = useDispatch()
 
     function handleOrderName(e){
-        // if (e.target.value === 'all') {
-        //     dispatch(getAllVideogames())
-        // } else {
-            e.preventDefault()
-            dispatch(orderName(e.target.value))      
-            // setPaginaActual(1);
-            // setOrder(`ordenado${e.target.value}`)
-            //e.target.value = 'default' -----> vuelve a default después de ejecutar un orden
-       // }
+        e.preventDefault()
+        dispatch(orderName(e.target.value))      
+        setCurrentPage(1);
+        // setOrder(`ordenado${e.target.value}`)
+        e.target.value = 'default' 
     }
 
     return (

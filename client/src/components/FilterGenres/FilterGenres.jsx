@@ -17,15 +17,11 @@ const FilterGenres = ({setCurrentPage}) => {
     }, [dispatch])
 
     function handleFilterGender(e){
-        // if (e.target.value === 'all') {
-        //     dispatch(getAllVideogames())
-        // } else {
-            e.preventDefault()
-            dispatch(filterGenres(e.target.value))      
-            setCurrentPage(1);
-            // setOrder(`ordenado${e.target.value}`)
-            e.target.value = 'default'
-        //}
+        e.preventDefault()
+        dispatch(filterGenres(e.target.value))      
+        setCurrentPage(1);
+        // setOrder(`ordenado${e.target.value}`)
+        e.target.value = 'default'
     }
 
     return (
