@@ -9,11 +9,8 @@ router.get('/', async (req, res, next) => {
 
     try {
         const games= await getAllVideogames()
-
         if(name){
-
             const gameByName= games.filter(e=>e.name.toLowerCase().includes(name.toLowerCase())).slice(0,15)
-            
             if(gameByName.length) res.send(gameByName)
             else res.status(404).send('Videogame not found')
         } else {
@@ -39,8 +36,6 @@ router.get('/:id', async (req, res, next)=>{
 router.post('/', async (req, res, next) => {
 
     const { name, description, released, rating, platforms, genres } = req.body
-
-    console.log(genres)
        
     try {
         let newVideogame = await Videogame.create ({ 
@@ -50,17 +45,13 @@ router.post('/', async (req, res, next) => {
             rating,
             platforms
         })
-        
         const generos = await Genre.findAll({ 
             where: { 
                 name: genres
             }  
         })
-        
         await newVideogame.addGenre(generos)
-        
         res.status(200).send(newVideogame)
-        // Falta el mensaje de videojuego creado con éxito
     } catch(error) {
         next(error)
     }

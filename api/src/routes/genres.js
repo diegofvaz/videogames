@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const router = Router();
-
 const { getAllGenres } = require('../controllers/genre')
 const { Genre } = require('../db.js')
 
