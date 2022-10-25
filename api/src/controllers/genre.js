@@ -9,7 +9,7 @@ const getAllGenres = async () => {
     try {
         const genres = await axios.get(url)
         const genre = genres.data.results.map(e=> ({id: e.id, name: e.name}))
-        const allGenre = await Genre.bulkCreate(genre)   //---> bulkCreate crea desde un array
+        const allGenre = await Genre.bulkCreate(genre) 
         return allGenre
     } catch (error) {
         console.log(error)
