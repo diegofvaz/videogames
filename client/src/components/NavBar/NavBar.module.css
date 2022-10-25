@@ -8,7 +8,7 @@
 
 .button {
     color: #ffffff;
-    margin: 0 60px;
+    margin: 0px 60px;
     padding: 0.7em 1.7em;
     font-size: 18px;
     border-radius: 0.5em;
@@ -31,5 +31,19 @@
 @media screen and (max-width:1200px){
     .nav{
       flex-wrap:wrap;
+    }
+
+    .button {
+        display: inline-block;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .button {
+        padding: 0.4em 1.3em;
+        font-size: 14px;
+        display: inline-block;
+        margin: 10px;
     }
 }

@@ -113,7 +113,7 @@
     transition: all .3s;
     box-shadow: 4px 4px 8px #7f5af0,
                 -4px -4px 8px #ffffff;
-   }
+}
    
 .button:hover {
     border: 1px solid white;
@@ -129,8 +129,11 @@
     font-size: 16px;
 }
 
-@media screen and (max-width:900px){
-    .conteiner{
-      flex-wrap:wrap;
+@media screen and (max-width:500px){
+    .button {
+        padding: 0.4em 1.3em;
+        font-size: 14px;
+        display: inline-block;
+        margin: 10px;
     }
 }

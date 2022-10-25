@@ -38,3 +38,19 @@
 .inputsearch:active {
     border: 5px solid #7f5af0;
 }
+
+@media screen and (max-width:1200px){
+    .button1, .inputsearch {
+        display: inline-block;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .button1, .inputsearch {
+        padding: 0.4em 1.3em;
+        font-size: 14px;
+        display: inline-block;
+        margin: 10px;
+    }
+}

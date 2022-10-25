@@ -21,7 +21,7 @@ const SearchBar = () => {
             dispatch(getName(state))
             setState('') //para limpiar mi busqueda
         } else {
-            alert('No ingreso nada en la busqueda')
+            alert('Debe escribir en la barra de busqueda')
         }
     }
     
@@ -32,15 +32,14 @@ const SearchBar = () => {
                     <span htmlFor="name"></span>
                     <input 
                         className={style.inputsearch}
-                        //type="search"
                         type='text'
                         id="name"
                         autoComplete="off"
                         value={state}
-                        placeholder='Videojuego...'
+                        placeholder='Videogame...'
                         onChange={e => handleChange(e)}
                     />
-                    <button className={style.button1} type="submit">Buscar</button>
+                    <button className={style.button1} type="submit">Search</button>
                 </div>
             </form>
         </div>

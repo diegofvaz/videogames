@@ -56,8 +56,31 @@
     padding: 250px 300px;
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:800px){
     .content{
-      display:flex;
+        padding: 30px 50px;
+    }
+
+    .card img{
+        width:80%;
+        height:30%;
+        border-radius:10px;
+        position:relative;
+        z-index:1000;
+        transition:all .5s ease-in-out;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .rating, .released, .description, .genres, .platforms {
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 14px;
+    }
+
+    .loading {
+        padding: 250px 30px;
     }
 }

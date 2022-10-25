@@ -45,9 +45,12 @@
     margin-top:-60px;
     box-shadow:0 0 4px 6px rgba(0,0,0,0.3);
 }
-  
-@media screen and (max-width:800px){
-    .container{
-      flex-wrap:wrap;
+
+@media screen and (max-width:400px){
+    .card{
+        min-height:100px;
+        width:300px;
+        margin:20px;
+        padding:0.8rem;
     }
 }
