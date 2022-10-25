@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { createVideogame, getAllVideogames, getAllGenres } from '../../redux/actions'
 import { Link } from 'react-router-dom';
+import style from '../CreateVideogame/CreateVideogame.module.css'
+
 
 
 function validate (input) {
@@ -36,6 +38,12 @@ function validate (input) {
     } else if(input.rating < 1) {
         errors.rating = 'El rating mínimo debe ser 1'
     }
+
+    if(!input.genres.length || input.genres.length >4) errors.genres = "Selecciona entre 1 y 4 generos" 
+
+    if(!input.platforms.length || input.platforms.length >5){
+        errors.platforms = "Solo se aceptan hasta 5 plataformas"
+    } 
 
     return errors 
 }
@@ -147,60 +155,66 @@ const CreateVideogame = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <h3>Create a videogame</h3>
-                <label>Name:</label>
-                <input className={errors.name && 'danger'} type="text" name="name" value={input.name} onChange={(e) => handleInputChange(e)} />
+        <div className={style.content}>
+            <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
+                <h3 className={style.title}>Create a videogame</h3>
+                <label className={style.label} >Name:</label>
+                <input className={style.input} type="text" name="name" value={input.name} onChange={(e) => handleInputChange(e)} />
                 {errors.name && (
-                <p className="danger">{errors.name}</p>
+                <p className={style.error}>{errors.name}</p>
                 )}
                 <br/>
                 <br/>
                 <br/>
-                <label>Description:</label>
-                <textarea className={errors.description && 'danger'} type="text" name="description" value={input.description} onChange={(e) => handleInputChange(e)} />
+                <label className={style.label}>Description:</label>
+                <textarea className={style.input} type="text" name="description" value={input.description} onChange={(e) => handleInputChange(e)} />
                 {errors.description && (
-                <p className="danger">{errors.description}</p>
+                <p className={style.error}>{errors.description}</p>
                 )}
                 <br/>
                 <br/>
                 <br/>
-                <label>Released:</label>
-                <input className={errors.released && 'danger'} type="date" name="released" value={input.released} onChange={(e) => handleInputChange(e)} />
+                <label className={style.label}>Released:</label>
+                <input className={style.input} type="date" name="released" value={input.released} onChange={(e) => handleInputChange(e)} />
                 {errors.released && (
-                <p className="danger">{errors.released}</p>
+                <p className={style.error}>{errors.released}</p>
                 )}
                 <br/>
                 <br/>
                 <br/>
-                <label>Rating:</label>
-                <input className={errors.rating && 'danger'} type="number" name="rating" value={input.rating} onChange={(e) => handleInputChange(e)} />
+                <label className={style.label}>Rating:</label>
+                <input className={style.input} type="number" name="rating" value={input.rating} min='1'max='5' onChange={(e) => handleInputChange(e)} />
                 {errors.rating && (
-                <p className="danger">{errors.rating}</p>
+                <p className={style.error}>{errors.rating}</p>
                 )}
                 <br/>
                 <br/>
                 <br/>
-                <div>Genres:
-                    <select name='select' defaultValue="default" onChange={(e) => handleSelect(e)}>
+                <div>
+                    <label className={style.labelG}>Genres:</label>
+                    <select className={style.input} name='select' defaultValue="default" onChange={(e) => handleSelect(e)}>
                         {allGenres?.map((g) => (
-                            <option value={g.name}>{g.name}</option>
+                            <option value={g.name} disabled ={input.genres.length > 3 && !input.genres.includes(g)} >{g.name}</option>
                         ))}                  
                     </select>
-                    <div className="selected">
-                        {input.genres.map((el) => el + " ")}
+                    <div className={style.genres}>
+                        <p>{input.genres.map((el) => el + " ")}</p>
                     </div>
+                    <div>{errors.genres && <p className={style.error}>{ errors.genres }</p>} </div>
                 </div>
                 <br/>
                 <br/>
                 <br/>
-                <div>Platforms: 
-                    <div>
+                <div>
+                    <div  className={style.labelP}>
+                        <label>Platforms:</label>
+                    </div>
+                    
+                    <div className={style.platforms}>
                         {arrayPlat.map(plat=> {
                             return(
                                 <div>
-                                    <input              
+                                    <input        
                                         type='checkbox'
                                         id={plat}
                                         name={plat}
@@ -208,21 +222,23 @@ const CreateVideogame = () => {
                                         disabled ={input.platforms.length > 4 && !input.platforms.includes(plat)} 
                                         selected={ input.platforms.includes(plat) } onChange={ handlePlatform }
                                     />
-                                    <label for={plat} >{plat}</label>
+                                    <label className={style.labelPlat} for={plat} >{plat}</label>
                                 
                                 </div>
                             )})
                         }
                     </div>
-                    <div>{errors.platforms && <p>{ errors.platforms }</p>} </div>
+                    <div>{errors.platforms && <p className={style.error}>{ errors.platforms }</p>} </div>
                 </div>        
                 <br/>
                 <br/>
                 <br/>
-                <button type="submit">Create</button>
-                <Link to={'/home'}>
-                    <button type="submit">Back Home</button>
-                </Link>
+                <div>
+                    <button className={style.button} type="submit">Create</button>
+                    <Link to={'/home'}>
+                        <button className={style.button} type="submit">Back Home</button>
+                    </Link>
+                </div>
             </form>
         </div>
     )

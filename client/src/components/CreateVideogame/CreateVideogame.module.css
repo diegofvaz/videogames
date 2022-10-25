@@ -1,0 +1,136 @@
+.content {
+    background-color: #242629;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 25px 50px;
+}
+
+.form {
+    display: inline-grid;
+    text-align: center;
+    align-items: center;
+}
+
+.title {
+    display: block;
+    color: white;
+    font-family: monospace;
+    font-size: 36px;
+    padding-top: 0;
+    padding: 25px 25px;
+    align-items: center;
+    text-align: center;
+}
+
+.label {
+    color: white;
+    font-family: monospace;
+    font-size: 18px;
+    position: flex;
+    transition: 0.5s all;
+    pointer-events: none;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.labelP {
+    color: white;
+    font-family: monospace;
+    font-size: 18px;
+    position: flex;
+    transition: 0.5s all;
+    pointer-events: none;
+    text-align: center;
+    align-items: center;
+}
+
+.labelPlat {
+    color: white;
+    font-family: monospace;
+    font-size: 18px;
+    position: flex;
+    transition: 0.5s all;
+    pointer-events: none;
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.input {
+    color: #7f5af0;
+    margin: 0 60px;
+    padding: 0.4em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 4px 4px 8px #7f5af0,
+                -4px -4px 8px #ffffff;
+}
+
+.labelG {
+    color: white;
+    font-family: monospace;
+    font-size: 18px;
+    position: flex;
+    transition: 0.5s all;
+    pointer-events: none;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.genres {
+    color: white;
+    font-family: monospace;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.platforms {
+    display: inline;
+    padding: 20px 70px;
+
+}
+
+.button {
+    color: #ffffff;
+    margin: 0 60px;
+    margin-left: 0px;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #7f5af0;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 4px 4px 8px #7f5af0,
+                -4px -4px 8px #ffffff;
+   }
+   
+.button:hover {
+    border: 1px solid white;
+}
+   
+.button:active {
+    box-shadow: 4px 4px 8px #7f5af0,
+                -4px -4px 8px #ffffff;
+}
+
+.error {
+    color: red;
+    font-size: 16px;
+}
+
+@media screen and (max-width:900px){
+    .conteiner{
+      flex-wrap:wrap;
+    }
+}
