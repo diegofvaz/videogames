@@ -1,8 +1,7 @@
 const { Router } = require('express');
 const router = Router();
-
 const { getAllVideogames, getVideogameById } = require('../controllers/videogame')
-const { Videogame, Genre} = require('../db')
+const { Videogame, Genre } = require('../db')
 
 router.get('/', async (req, res, next) => {
 
@@ -23,11 +22,6 @@ router.get('/', async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-        
-
-    // // Pruebo traerme los videogames de la DB ----> FUNCIONA!!!
-    // const allVideogamesDB = await Videogame.findAll()
-    // res.send(allVideogamesDB)
 })
 
 router.get('/:id', async (req, res, next)=>{
@@ -47,78 +41,29 @@ router.post('/', async (req, res, next) => {
     const { name, description, released, rating, platforms, genres } = req.body
 
     console.log(genres)
-       //la accion de crear una nueva instancia es asincrona, como manejo errores? con try y catch
+       
     try {
-        let newVideogame = await Videogame.create ({ //le paso al create el objeto con todos los atributos que quiero que tenga mi nuevo videojuego
+        let newVideogame = await Videogame.create ({ 
             name,
             description,
             released,
             rating,
-            platforms,
-            genres
+            platforms
         })
-        // genres.forEach(async (e) => {
-        //     let genresDb = await Genre.findAll({
-        //       where: { name: e.name },
-        //     });
-        //     newVideogame.addGenre(Object.values(genresDb));
-        //   });
-
-        //   genres.forEach(async (g) => {
-        //     let genresGame = await Genre.findAll({ where: { name: g } });
-        //     //await newVideogame.addGenre(genresGame);
-        //     console.log(genresGame)
-        //   });
-        //   console.log(newVideogame)
-        // let relation = await Genre.findAll({
-        //     where: {name: genres}
-        // })
-        // res.send(relation)
-        let relation = console.log(await Genre.findAll({ //en generos, buscame todos aquellos
-            //attributes: ['name'],
-            where: { //donde
+        
+        const generos = await Genre.findAll({ 
+            where: { 
                 name: genres
-            }
+            }  
         })
-        )
-        console.log("soy la relacion", relation)
-        await newVideogame.addGenre(relation) //a mi juego creado, le agrego algun genero
-        console.log(newVideogame)
-        res.send(newVideogame)
+        
+        await newVideogame.addGenre(generos)
+        
+        res.status(200).send(newVideogame)
         // Falta el mensaje de videojuego creado con éxito
     } catch(error) {
         next(error)
     }
 })
-
-// router.post('/', async (req, res) => {
-//     let {
-//       name,
-//       released,
-//       rating,
-//       //image,
-//       genres,
-//       platforms,
-//       description,
-//       //createdInDb
-//     } = req.body
-  
-//     let gameCreated = await Videogame.create({
-//       name,
-//       released,
-//       rating,
-//       //image,
-//       platforms,
-//       description,
-//       //createdInDb
-//     })
-  
-//     let genreDb = await Genre.findAll({
-//       where: { name: genres }
-//     })
-//     gameCreated.addGenre(genreDb)
-//     console.log(gameCreated)
-//     res.send(gameCreated)
-//   })
 
 module.exports = router;

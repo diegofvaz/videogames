@@ -83,7 +83,7 @@ const getVideogameById = async (id) =>{
         const videogame= {
             id:e.id,
             name: e.name,
-            //image: e.background_image,
+            image: e.background_image,
             description: e.description_raw,
             released: e.released,
             rating: e.rating,
