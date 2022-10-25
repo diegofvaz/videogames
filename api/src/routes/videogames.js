@@ -35,7 +35,7 @@ router.get('/:id', async (req, res, next)=>{
 
 router.post('/', async (req, res, next) => {
 
-    const { name, description, released, rating, platforms, genres } = req.body
+    const { name, description, released, rating, image, platforms, genres } = req.body
        
     try {
         let newVideogame = await Videogame.create ({ 
@@ -43,6 +43,7 @@ router.post('/', async (req, res, next) => {
             description,
             released,
             rating,
+            image,
             platforms
         })
         const generos = await Genre.findAll({ 

@@ -20,12 +20,18 @@ module.exports = (sequelize) => {
     },
     released: {
       type: DataTypes.DATEONLY,
+      allowNull: false,
     },
     rating: {
       type: DataTypes.FLOAT,
+      allowNull: false,
     },
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
