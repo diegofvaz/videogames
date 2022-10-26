@@ -14,13 +14,12 @@ const VideogameDetail = () => {
     const { id } = useParams()
 
     const dispatch= useDispatch()
-    const [/*cambio */, setCambio] = useState(false)
-
-    console.log("este es el detalle", details)
+    //const [/*cambio */, setCambio] = useState(false)
 
     useEffect(()=>{
         dispatch(getDetail(id))
-        setCambio(true)
+        //setCambio(true)
+        window.scrollTo(0, 0);
         // return()=>{
         //   dispatch(clearDetalle())
         // }
