@@ -39,10 +39,12 @@ function validate (input) {
         errors.rating = 'El rating mínimo debe ser 1'
     }
 
-    if(!input.genres.length || input.genres.length >4) errors.genres = "Selecciona entre 1 y 4 generos" 
+    if(!input.genres.length || input.genres.length > 4) {
+        errors.genres = "Selecciona entre 1 y 4 generos" 
+    }
 
-    if(!input.platforms.length || input.platforms.length >5){
-        errors.platforms = "Solo se aceptan hasta 5 plataformas"
+    if(!input.platforms.length || input.platforms.length > 4){
+        errors.platforms = "Solo se aceptan hasta 4 plataformas"
     } 
     return errors 
 }
@@ -112,7 +114,7 @@ const CreateVideogame = () => {
         }));
     }
 
-    function handleSelect(e) {
+    function handleGenres(e) {
         e.preventDefault()
         setInput({
           ...input,
@@ -121,7 +123,7 @@ const CreateVideogame = () => {
         e.target.value = 'default' 
     }
 
-    const arrayPlat=[
+    const arrayPlat = [
         'Android',
         'iOS',
         'Linux',
@@ -138,18 +140,14 @@ const CreateVideogame = () => {
         'Xbox Series S/X',
         'Xbox',
     ]
-    
-    const handlePlatform =(e)=>{
-        let array= input.platforms
-        let ver= array.indexOf(e.target.value)
-        if(ver>=0){array.splice(ver,1)}
-        else{array.push(e.target.value)}
+
+    function handlePlatforms(e) {
+        e.preventDefault()
         setInput({
         ...input,
-        arrayPlat:array
+        platforms: [...input.platforms, e.target.value]
         })
-        const validations = validate(input);
-        setErrors(validations)
+        e.target.value = 'default' 
     }
 
     return (
@@ -198,14 +196,14 @@ const CreateVideogame = () => {
                 <br/>
                 <div>
                     <label className={style.labelG}>Genres:</label>
-                    <select className={style.input} name='select' defaultValue="default" onChange={(e) => handleSelect(e)}>
+                    <select className={style.input} name='select' defaultValue="default" onChange={(e) => handleGenres(e)}>
                         <option value='default' disabled='disabled'>All</option>
                         {allGenres?.map((g) => (
-                            <option value={g.name} disabled ={input.genres.length > 3 && !input.genres.includes(g)} >{g.name}</option>
+                            <option value={g.name} disabled ={input.genres.length > 3 || input.genres.includes(g)} >{g.name}</option>
                         ))}                  
                     </select>
                     <div className={style.genres}>
-                        <p>{input.genres.map((el) => el + " ")}</p>
+                        <p>{input.genres.map((e) => e + " ")}</p>
                     </div>
                     <div>{errors.genres && <p className={style.error}>{ errors.genres }</p>} </div>
                 </div>
@@ -213,30 +211,18 @@ const CreateVideogame = () => {
                 <br/>
                 <br/>
                 <div>
-                    <div  className={style.labelP}>
-                        <label>Platforms:</label>
-                    </div>
-                    
-                    <div className={style.platforms}>
-                        {arrayPlat.map(plat=> {
-                            return(
-                                <div>
-                                    <input       
-                                        type='checkbox'
-                                        id={plat}
-                                        name={plat}
-                                        value={ plat }
-                                        disabled ={input.platforms.length > 4 && !input.platforms.includes(plat)} 
-                                        selected={ input.platforms.includes(plat) } onChange={ handlePlatform }
-                                    />
-                                    <label className={style.labelPlat} for={plat} >{plat}</label>
-                                
-                                </div>
-                            )})
-                        }
+                    <label className={style.labelG}>Platforms:</label>
+                    <select className={style.input} name='select' defaultValue="default" onChange={(e) => handlePlatforms(e)}>
+                        <option value='default' disabled='disabled'>All</option>
+                        {arrayPlat?.map((e) => (
+                            <option value={e} disabled ={input.platforms.length > 3 || input.platforms.includes(e)}>{e}</option>
+                        ))} 
+                    </select>
+                    <div className={style.genres}>
+                        <p>{input.platforms.map((e) => e + " ")}</p>
                     </div>
                     <div>{errors.platforms && <p className={style.error}>{ errors.platforms }</p>} </div>
-                </div>        
+                </div>
                 <br/>
                 <br/>
                 <br/>
