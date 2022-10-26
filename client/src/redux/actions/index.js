@@ -9,6 +9,7 @@ export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_RATING = "ORDER_RATING";
 export const FILTER_GENRES = "FILTER_GENRES";
 export const FILTER_VIDEOGAME = "FILTER_VIDEOGAME";
+export const CLEAR_DETAIL = "CLEAR_DETAIL";
 
 export const getAllVideogames = () => async dispatch => {
   try {
@@ -83,3 +84,9 @@ export const filterVideogame = (payload) => {
     payload
   }
 };
+
+export function clearDetail(){
+  return{
+      type: CLEAR_DETAIL,
+  }
+}

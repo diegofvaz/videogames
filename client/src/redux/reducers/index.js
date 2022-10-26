@@ -1,4 +1,4 @@
-import { GET_ALL_VIDEOGAMES, GET_DETAIL, GET_NAME, CREATE_VIDEOGAME, GET_ALL_GENRES, ORDER_NAME, ORDER_RATING, FILTER_GENRES, FILTER_VIDEOGAME} from "../actions/index";
+import { GET_ALL_VIDEOGAMES, GET_DETAIL, GET_NAME, CREATE_VIDEOGAME, GET_ALL_GENRES, ORDER_NAME, ORDER_RATING, FILTER_GENRES, FILTER_VIDEOGAME, CLEAR_DETAIL} from "../actions/index";
 
 const initialState = {
     allVideogames:[],
@@ -89,6 +89,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 //videogames: action.payload === "all" ? state.allVideogames : filterGenres
                 videogames: action.payload === "all" ? state.allVideogames : action.payload === 'db' ? fromDB : fromApi
+            }
+        case CLEAR_DETAIL:
+            return{
+                ...state,
+                videogame:[],
             }
         default:
         return state;

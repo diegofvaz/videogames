@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getDetail } from '../../redux/actions'
+import { getDetail, clearDetail } from '../../redux/actions'
 import Loading from "../Loading/Loading";
 import Error from '../Error/Error';
 import style from '../VideogameDetail/VideogameDetail.module.css'
@@ -14,15 +14,13 @@ const VideogameDetail = () => {
     const { id } = useParams()
 
     const dispatch= useDispatch()
-    //const [/*cambio */, setCambio] = useState(false)
 
     useEffect(()=>{
         dispatch(getDetail(id))
-        //setCambio(true)
         window.scrollTo(0, 0);
-        // return()=>{
-        //   dispatch(clearDetalle())
-        // }
+        return()=>{
+          dispatch(clearDetail())
+        }
     }, [id, dispatch] )
 
     // if(details.id === 404){
