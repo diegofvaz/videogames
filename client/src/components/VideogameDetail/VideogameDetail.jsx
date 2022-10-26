@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getDetail, clearDetail } from '../../redux/actions'
 import Loading from "../Loading/Loading";
@@ -23,11 +22,11 @@ const VideogameDetail = () => {
         }
     }, [id, dispatch] )
 
-    // if(details.id === 404){
-    //     return (
-    //       <Error/>
-    //     )
-    // }
+    if(details.name === 404){
+        return (
+          <Error/>
+        )
+    }
     
     return (    
         <div className={style.content}>

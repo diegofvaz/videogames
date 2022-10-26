@@ -26,7 +26,10 @@ export const getDetail = (id) => async dispatch => {
     dispatch({ type: "GET_DETAIL", payload: data });
   } catch (error) {
     console.log(error)
-    // se puede poner error 404
+    return dispatch({
+      type: "GET_DETAIL",
+      payload: {name: 404}
+    })
   }
 };
 
@@ -88,6 +91,6 @@ export const filterVideogame = (payload) => {
 
 export function clearDetail(){
   return{
-      type: CLEAR_DETAIL,
+      type: "CLEAR_DETAIL",
   }
-}
+};
