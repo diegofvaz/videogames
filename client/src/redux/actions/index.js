@@ -36,6 +36,7 @@ export const getName = (name) => async dispatch => {
     dispatch({ type: "GET_NAME", payload: data });
   } catch (error) {
     console.log(error)
+    alert(`The videogame ${name} was not found`)
   }
 };
 
