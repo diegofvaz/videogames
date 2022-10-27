@@ -7,21 +7,21 @@ import style from '../SearchBar/SearchBar.module.css'
 
 const SearchBar = () => {
 
-    const [state, setState] = useState('') //me creo un estado local cuyo valor incial es vacio
+    const [name, setName] = useState('')
     const dispatch = useDispatch()
 
-    function handleChange(e) { //cada vez que escriba algo en la barra de busqueda
+    function handleChange(e) {
         e.preventDefault()
-        setState(e.target.value) //a mi estado incial lo seteo con el valor que voy ingresando en mi busqueda
+        setName(e.target.value)
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        if(state.length) { //si escribo algo en mi barra de busqueda
-            dispatch(getName(state))
-            setState('') //para limpiar mi busqueda
+        if(name.length) {
+            dispatch(getName(name))
+            setName('')
         } else {
-            alert('Debe escribir en la barra de busqueda')
+            alert('You must type to search')
         }
     }
     
@@ -29,13 +29,12 @@ const SearchBar = () => {
         <div>
             <form onSubmit={e => handleSubmit(e)}>
                 <div>
-                    <span htmlFor="name"></span>
                     <input 
                         className={style.inputsearch}
                         type='text'
                         id="name"
                         autoComplete="off"
-                        value={state}
+                        value={name}
                         placeholder='Videogame...'
                         onChange={e => handleChange(e)}
                     />
