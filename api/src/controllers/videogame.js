@@ -88,7 +88,7 @@ const getVideogameById = async (id) =>{
             description: e.description_raw,
             released: e.released,
             rating: e.rating,
-            platform: e.platforms.map(e=>e.platform.name),
+            platforms: e.platforms.map(e=>e.platform.name),
             genres: e.genres.map(e=>e.name)
         }
         return videogame
