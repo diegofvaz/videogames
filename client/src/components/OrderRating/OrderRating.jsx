@@ -12,7 +12,6 @@ const OrderRating = ({setCurrentPage}) => {
         e.preventDefault()
         dispatch(orderRating(e.target.value))      
         setCurrentPage(1);
-        // setOrder(`ordenado${e.target.value}`)
         e.target.value = 'default'
     }
 

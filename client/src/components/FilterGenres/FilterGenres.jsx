@@ -20,7 +20,6 @@ const FilterGenres = ({setCurrentPage}) => {
         e.preventDefault()
         dispatch(filterGenres(e.target.value))      
         setCurrentPage(1);
-        // setOrder(`ordenado${e.target.value}`)
         e.target.value = 'default'
     }
 
