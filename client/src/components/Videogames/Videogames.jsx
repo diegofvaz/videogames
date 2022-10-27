@@ -1,6 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { getAllVideogames } from "../../redux/actions";
 import Videogame from "../Videogame/Videogame";
 import { NavLink } from "react-router-dom";

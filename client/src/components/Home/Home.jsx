@@ -29,9 +29,6 @@ const Home = () => {
         window.scrollTo(0, 0);
     }, [currentPage])
     
-
-    //console.log(allVideogames)
-    
     return (
         <div>
             <div>
