@@ -27,7 +27,7 @@ const VideogameDetail = () => {
           <Error/>
         )
     }
-    
+
     return (    
         <div className={style.content}>
             {details.name ?
@@ -40,7 +40,7 @@ const VideogameDetail = () => {
                     <p className={style.rating}> Rating: {details.rating}</p>
                     <p className={style.released}> Released: {details.released}</p>
                     <p className={style.genres}>Genres: {details.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}</p>
-                    <p className={style.platforms}>Platforms: {details.platform?.map(e => e).join(', ')}</p>
+                    <p className={style.platforms}>Platforms: {details.platforms?.map(e => e).join(', ')}</p>
                     <Link to={'/home'}>
                         <button className={style.button} type="submit">Back Home</button>
                     </Link>
