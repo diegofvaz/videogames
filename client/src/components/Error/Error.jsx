@@ -8,7 +8,7 @@ const Error = () => {
     return (
         <div className={style.content}>
             <h1>Page not found</h1>
-            <div>
+            <div className={style.divButton}>
                 <Link to='/home'><button className={style.button}>Back Home</button></Link>
             </div>
         </div>

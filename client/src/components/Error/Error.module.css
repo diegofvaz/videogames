@@ -1,17 +1,19 @@
 .content{
     background-color: #242629;
-    display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 150px; */
-    margin: 100px 100px;
     color: #ffffff;
     font-size: 30px;
+    padding: 10rem;
+}
+
+h1, .divButton {
+    padding: 4rem;
+    display: block;
 }
 
 .button {
     color: #ffffff;
-    margin: 0px 60px;
     padding: 0.7em 1.7em;
     font-size: 18px;
     border-radius: 0.5em;
@@ -34,20 +36,29 @@
 @media screen and (max-width:800px){
     .content {
         font-size: 20px;
-        height: 150px;
+        padding: 10rem 8rem;
+    }
+
+    h1, .divButton {
+        padding: 5rem;
+        display: inline-block;
     }
 }
 
 @media screen and (max-width:500px){
     .content {
         font-size: 12px;
-        height: 250px;
+        padding: 12rem 3rem;
     }
 
     .button {
         padding: 0.4em 1.3em;
         font-size: 14px;
         display: inline-block;
-        margin: 10px;
+    }
+
+    h1, .divButton {
+        padding: 5rem;
+        display: inline-block;
     }
 }
