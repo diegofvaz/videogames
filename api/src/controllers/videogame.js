@@ -80,7 +80,7 @@ const getVideogameById = async (id) =>{
         })
         return videogameByIdDB  
     }else{
-        const videogameByIdApi= await axios.get(`https://api.rawg.io/api/games/${id}?key=4ad4ff1f90d14b2ab86fe2c9635fd7f8`)
+        const videogameByIdApi= await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
         const e = videogameByIdApi.data
         const videogame= {
             id:e.id,
