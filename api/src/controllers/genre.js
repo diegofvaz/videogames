@@ -5,7 +5,7 @@ const { Genre } = require('../db.js')
 
 const getAllGenres = async () => {
 
-    let url = `https://api.rawg.io/api/genres?key=4ad4ff1f90d14b2ab86fe2c9635fd7f8`
+    let url = `https://api.rawg.io/api/genres?key=${API_KEY}`
     
     try {
         const genres = await axios.get(url)
