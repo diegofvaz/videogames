@@ -8,6 +8,8 @@ import store from './redux/store/index';
 import { BrowserRouter } from 'react-router-dom'
 import axios from "axios";
 
+axios.defaults.baseURL = "http://localhost:3001";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
