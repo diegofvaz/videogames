@@ -1,7 +1,7 @@
 # Individual Project - Henry Videogames
 
 <p align="right">
-  <img height="200" src="./videogame.png" />
+  <img height="200" src="./videogames.JPG" />
 </p>
 
 ## Objetivos del Proyecto
