@@ -1,6 +1,6 @@
 # Individual Project - Henry Videogames
 
-<p align="right">
+<p align="left">
   <img height="200" src="./videogames.JPG" />
 </p>
 
