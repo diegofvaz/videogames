@@ -11,12 +11,6 @@
 - Aprender mejores prácticas.
 - Aprender y practicar el workflow de GIT.
 
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
-
-Adicionalmente será necesario que creen desde psql una base de datos llamada `videogames`
-
-El contenido de `client` fue creado usando: Create React App.
-
 ## Enunciado
 
 La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs) y a partir de ella poder, entre otras cosas:
