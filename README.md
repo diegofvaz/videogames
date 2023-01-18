@@ -11,8 +11,6 @@
 - Aprender mejores prácticas.
 - Aprender y practicar el workflow de GIT.
 
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
-
 ```env
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
