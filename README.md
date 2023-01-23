@@ -19,13 +19,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-#### Tecnologías necesarias
-
-- [ ] React
-- [ ] Redux
-- [ ] Express
-- [ ] Sequelize - Postgres
-
 ## Frontend
 
 Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
