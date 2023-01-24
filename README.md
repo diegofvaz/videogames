@@ -19,10 +19,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-## Frontend
-
-Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
-
 __Pagina inicial__: deben armar una landing page con
 
 - [ ] Alguna imagen de fondo representativa al proyecto
