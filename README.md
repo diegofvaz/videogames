@@ -19,11 +19,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-__Pagina inicial__: deben armar una landing page con
-
-- [ ] Alguna imagen de fondo representativa al proyecto
-- [ ] Botón para ingresar al home (`Ruta principal`)
-
 __Ruta principal__: debe contener
 
 - [ ] Input de búsqueda para encontrar videojuegos por nombre
