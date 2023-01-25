@@ -19,14 +19,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-__Ruta de detalle de videojuego__: debe contener
-
-- [ ] Los campos mostrados en la ruta principal para cada videojuegos (imagen, nombre, y géneros)
-- [ ] Descripción
-- [ ] Fecha de lanzamiento
-- [ ] Rating
-- [ ] Plataformas
-
 __Ruta de creación de videojuegos__: debe contener
 
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
