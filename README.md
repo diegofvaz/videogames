@@ -19,10 +19,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-## Base de datos
-
-El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
-
 - [ ] Videojuego con las siguientes propiedades:
   - ID: * No puede ser un ID de un videojuego ya existente en la API rawg
   - Nombre *
