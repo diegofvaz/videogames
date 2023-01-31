@@ -23,8 +23,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 
 Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
 
-__IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
-
 - [ ] __GET /videogames__:
   - Obtener un listado de los videojuegos
   - Debe devolver solo los datos necesarios para la ruta principal
