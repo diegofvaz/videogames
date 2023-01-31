@@ -19,8 +19,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-__IMPORTANTE__: Pensar como modelar los IDs de los videojuegos en la base de datos. Existen distintas formas correctas de hacerlo pero tener en cuenta que cuando hagamos click en algun videojuego, este puede provenir de la API o de la Base de Datos por lo que cuando muestre su detalle no debería haber ambigüedad en cual se debería mostrar. Por ejemplo si en la API el videojuego `Age of Empires II: Age of Kings` tiene id = 1 y en nuestra base de datos creamos un nuevo videojuego `Age of Henry` con id = 1, ver la forma de diferenciarlos cuando querramos acceder al detalle del mismo.
-
 ## Backend
 
 Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
