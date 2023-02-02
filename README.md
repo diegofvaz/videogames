@@ -41,5 +41,3 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
   - En una primera instancia deberán traerlos desde rawg y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 
 ## Testing
-
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
