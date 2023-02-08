@@ -34,5 +34,4 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
   - Debe traer solo los datos pedidos en la ruta de detalle de videojuego
 - [ ] __POST /videogames__:
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de videojuego por body
-- [ ] __GET /genres__:
 
