@@ -32,5 +32,4 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
 - [ ] __GET /videogame/{idVideogame}__:
   - Obtener el detalle de un videojuego en particular
   - Debe traer solo los datos pedidos en la ruta de detalle de videojuego
-- [ ] __POST /videogames__:
 
