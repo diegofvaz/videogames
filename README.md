@@ -28,7 +28,6 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
   - Debe devolver solo los datos necesarios para la ruta principal
 - [ ] __GET /videogames?name="..."__:
   - Obtener un listado de las primeros 15 videojuegos que contengan la palabra ingresada como query parameter
-  - Si no existe ningún videojuego mostrar un mensaje adecuado
 - [ ] __GET /videogame/{idVideogame}__:
   - Obtener el detalle de un videojuego en particular
 
