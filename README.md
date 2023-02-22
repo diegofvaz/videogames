@@ -11,7 +11,7 @@
 - Aprender mejores prácticas.
 - Aprender y practicar el workflow de GIT.
 
-## Enunciado
+## Descripción
 
 La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs) y a partir de ella poder, entre otras cosas:
 
