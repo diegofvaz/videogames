@@ -11,3 +11,5 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Buscar videjuegos
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
+
+## Tecnologías
