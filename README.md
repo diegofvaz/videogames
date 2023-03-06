@@ -16,3 +16,4 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 
 - [ ] __Frontend__:
   - HTML
+  - CSS
