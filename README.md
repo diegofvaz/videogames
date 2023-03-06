@@ -15,3 +15,4 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 ## Tecnologías
 
 - [ ] __Frontend__:
+  - HTML
