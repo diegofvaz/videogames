@@ -22,3 +22,4 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
   - NodeJS
   - Express
 - [ ] __Base de datos__:
+  - Postgres
