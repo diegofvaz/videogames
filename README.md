@@ -21,3 +21,4 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - [ ] __Backend__:
   - NodeJS
   - Express
+- [ ] __Base de datos__:
