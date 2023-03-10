@@ -22,5 +22,6 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - [ ] __Backend__:
   - NodeJS
   - Express
+  - Sequelize
 - [ ] __Base de datos__:
   - Postgres
