@@ -6,7 +6,7 @@
 
 ## Descripción
 
-La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs).
+Este proyecto es una aplicación de videojuegos, que tiene como objetivo consumir datos de la API externa [Rawg](https://rawg.io/apidocs) para mostrar los juegos en forma de catálogo.
 
 ## Tecnologías
 
