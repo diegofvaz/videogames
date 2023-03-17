@@ -8,6 +8,8 @@
 
 Este proyecto es una aplicación de videojuegos, que tiene como objetivo consumir datos de la API externa [Rawg](https://rawg.io/apidocs) para mostrar los juegos en forma de catálogo.
 
+En esta aplicación, el usuario podrá elegir el videojuego de su preferencia buscando en el catálogo a disposición o utilizando filtros, como género, rating y orden alfabético.
+
 ## Tecnologías
 
 - [ ] __Frontend__:
