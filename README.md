@@ -27,3 +27,5 @@ Además, el usuario podrá crear sus propios videojuegos completando un formular
   - Postgres
 
 ## Deploy
+
+- Frontend: Vercel
