@@ -30,3 +30,4 @@ Además, el usuario podrá crear sus propios videojuegos completando un formular
 
 - Frontend: Vercel
 - Backend: Render
+- Base de datos: Clever Cloud
