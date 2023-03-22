@@ -25,3 +25,5 @@ Además, el usuario podrá crear sus propios videojuegos completando un formular
   - Sequelize
 - [ ] __Base de datos__:
   - Postgres
+
+## Deploy
