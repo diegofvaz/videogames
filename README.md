@@ -29,3 +29,4 @@ Además, el usuario podrá crear sus propios videojuegos completando un formular
 ## Deploy
 
 - Frontend: Vercel
+- Backend: Render
